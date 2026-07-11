@@ -114,7 +114,7 @@ npm run dev
 ### Method 2: Docker Containerization (Recommended for Deployment)
 If you wish to spin up the production environment including dependencies with a single command:
 
-Bash
+```bash
 # Build and run the system containers in detached mode
 docker-compose up --build -d
 📊 Required Batch Data Format
