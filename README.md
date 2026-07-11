@@ -1,6 +1,6 @@
 # RiskScan: AI-Powered Financial Fraud Detection System
 
-**RiskScan** is an end-to-end Data Engineering and Machine Learning project designed to detect financial credit card fraud. The system architecture processes raw transactional data using a structured **Medallion Data Pipeline** (Bronze $\rightarrow$ Silver $\rightarrow$ Gold), trains an optimized **XGBoost** classification model, and serves predictions via a high-performance **FastAPI** backend integrated with a modern **React (Vite + Tailwind CSS)** dashboard.
+**RiskScan** is an end-to-end Data Engineering and Machine Learning project designed to detect anomalies and fraudulent patterns across financial transactions. The system architecture processes raw transactional data using a structured **Medallion Data Pipeline** (Bronze $\rightarrow$ Silver $\rightarrow$ Gold), trains an optimized **XGBoost** classification model, and serves predictions via a high-performance **FastAPI** backend integrated with a modern **React (Vite + Tailwind CSS)** dashboard.
 
 ---
 
