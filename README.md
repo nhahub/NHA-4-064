@@ -73,14 +73,19 @@ Fraud_Detection/
 
 
 ---
-##⚙️ Setup, Installation & Run Commands
+
+## ⚙️ Setup, Installation & Run Commands
+
 You can run the project either locally using native package managers or instantly via Docker.
 
-Method 1: Local Installation (Native)
-1. Backend Setup & Run (FastAPI)
+---
+
+### 💻 Method 1: Local Installation (Native)
+
+#### 1. Backend Setup & Run (FastAPI)
 Open your terminal at the root directory of the project:
 
-Bash
+```bash
 # 1. Activate the pre-existing virtual environment
 # On Windows:
 venv\Scripts\activate
@@ -91,8 +96,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 # 3. Start the FastAPI server
-uvicorn backend.app:app --reload --host 127.0.0.1 --port 8000
-Interactive API documentation (Swagger UI) will be live at: http://127.0.0.1:8000/docs
+uvicorn backend.app:app --reload 
 
 2. Frontend Setup & Run (React + Vite)
 Open a new terminal window, navigate into the frontend folder, and execute the following:
