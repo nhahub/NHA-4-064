@@ -1,0 +1,26 @@
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Python Cache & Compiled Files
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Machine Learning Models & Weights
+models_weights/
+backend/models/*
+!backend/models/DEPI_Project.ipynb
+
+# Data & Test Files
+test*.json
+*.parquet
+**/*_SUCCESS
+**/*.crc
+
+# OS & IDE Files
+.vscode/
+.idea/
+.DS_Store

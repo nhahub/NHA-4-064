@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Styles (scoped, self-contained — Fully Responsive Updated)
+   --------------------------------------------------------------------------- */
+.fd-root {
+  --ink: #0B0F17;
+  --panel: #131A26;
+  --panel-raised: #1B2433;
+  --line: #26303F;
+  --text: #EDF1F7;
+  --muted: #8B96A8;
+  --scan: #4C8DFF;
+  background: var(--ink);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 24px 16px 48px; /* تقليل البادينج الافتراضي للشاشات الصغيرة */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  max-width: 1000px; /* Reduced to provide comfortable margins instead of 100% stretch */
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* لضمان حساب الأبعاد بشكل صحيح لكل العناصر */
+.fd-root *, .fd-root *::before, .fd-root *::after {
+  box-sizing: border-box;
+}
+
+.fd-header { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 6px; 
+  margin-bottom: 32px; 
+  align-items: flex-start;  /* محاذاة لليسار */
+  text-align: left;
+  margin-left: -20px; /* سحب العنوان واللوجو لليسار قليلاً */
+}
+.fd-brand {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: clamp(32px, 6vw, 42px); /* تكبير ملحوظ لحجم الخط */
+  font-weight: 800; 
+  letter-spacing: 0.02em;
+  display: flex; 
+  align-items: center; 
+  gap: 12px; /* زيادة التباعد بين اللوجو والنص */
+}
+.fd-brand-icon { color: var(--scan); }
+.fd-brand-accent { color: var(--scan); }
+.fd-header-sub { color: var(--muted); font-size: clamp(11px, 2.5vw, 13px); }
+
+.fd-dropzone {
+  position: relative;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: 10px;
+  padding: clamp(32px, 8vw, 56px) 20px; /* بادينج مرن */
+  text-align: center;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  width: 100%;
+}
+.fd-dropzone-active { border-color: var(--scan); background: #142033; }
+.fd-dropzone h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(15px, 3.5vw, 18px); margin: 10px 0 2px; font-weight: 600; }
+.fd-dropzone p { color: var(--muted); font-size: clamp(11px, 2.8vw, 13px); margin: 0 0 14px; max-width: 420px; line-height: 1.4; }
+.fd-drop-icon { color: var(--scan); opacity: 0.9; }
+
+.fd-corner { position: absolute; width: 14px; height: 14px; border-color: #34405480; }
+.fd-corner-tl { top: 10px; left: 10px; border-top: 2px solid; border-left: 2px solid; }
+.fd-corner-tr { top: 10px; right: 10px; border-top: 2px solid; border-right: 2px solid; }
+.fd-corner-bl { bottom: 10px; left: 10px; border-bottom: 2px solid; border-left: 2px solid; }
+.fd-corner-br { bottom: 10px; right: 10px; border-bottom: 2px solid; border-right: 2px solid; }
+
+.fd-dropzone-scanning .fd-corner { border-color: var(--scan); }
+.fd-scanline {
+  position: absolute; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--scan), transparent);
+  animation: fd-sweep 1.6s linear infinite;
+  box-shadow: 0 0 12px 1px var(--scan);
+}
+@keyframes fd-sweep {
+  0% { top: 8%; }
+  100% { top: 92%; }
+}
+
+.fd-browse-btn, .fd-primary-btn, .fd-ghost-btn {
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+  border-radius: 7px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 16px; border: 1px solid transparent;
+  white-space: nowrap;
+}
+.fd-browse-btn { background: var(--scan); color: #061021; }
+.fd-primary-btn { background: var(--scan); color: #061021; border: none; }
+.fd-primary-btn:disabled { opacity: 0.6; cursor: default; }
+.fd-ghost-btn { background: transparent; color: var(--muted); border: 1px solid var(--line); }
+.fd-ghost-btn:hover { color: var(--text); border-color: #3a4759; }
+.fd-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 4px; }
+
+.fd-error {
+  margin-top: 16px; display: flex; align-items: center; gap: 8px;
+  background: #2A1418; border: 1px solid #5c2530; color: #FF9A9A;
+  padding: 10px 14px; border-radius: 8px; font-size: 13px;
+}
+
+/* شريط الإحصائيات: يتغير عدد الأعمدة تلقائياً حسب عرض الشاشة */
+.fd-stat-strip { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+  gap: 12px; 
+  margin-bottom: 22px; 
+}
+.fd-stat { background: var(--panel); border: 1px solid var(--line); border-radius: 9px; padding: 14px 16px; }
+.fd-stat-label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+.fd-stat-value { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 600; }
+.fd-stat-sub { color: var(--muted); font-size: 11px; margin-top: 3px; }
+
+.fd-results-head {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;
+  margin-bottom: 12px; padding: 0 2px;
+  flex-wrap: wrap; /* ينزل لسطر جديد على الشاشات الصغيرة جداً */
+}
+.fd-results-head span { display: inline-flex; align-items: center; gap: 6px; }
+
+.fd-table { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; width: 100%; }
+.fd-row { border-bottom: 1px solid var(--line); background: var(--panel); }
+.fd-row:last-child { border-bottom: none; }
+.fd-row-open { background: var(--panel-raised); }
+
+/* رأس الصف: مرن ويفسح مجالاً للعناصر المختلفة */
+.fd-row-head {
+  width: 100%; background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; 
+  padding: 12px 14px; color: var(--text);
+  font-family: 'Inter', sans-serif; text-align: left;
+  flex-wrap: wrap; /* يسمح للعناصر بالالتفاف في الشاشات الصغيرة */
+}
+
+/* حاوية تجميعية للعناصر الثابتة في اليسار للحفاظ على المظهر */
+.fd-row-head-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.fd-row-index { font-family: 'IBM Plex Mono', monospace; color: var(--muted); font-size: 12px; width: 35px; }
+.fd-ring { flex-shrink: 0; }
+.fd-ring-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; fill: var(--text); }
+.fd-row-badge {
+  display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600;
+  border: 1px solid; border-radius: 20px; padding: 2px 8px;
+  white-space: nowrap;
+}
+.fd-row-verdict { font-size: 13px; color: var(--muted); min-width: 120px; }
+.fd-row-mismatch { font-size: 10px; color: #FFB020; background: #2b220e; border-radius: 5px; padding: 2px 6px; white-space: nowrap; }
+.fd-row-amount { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--text); margin-left: auto; }
+.fd-chevron { color: var(--muted); flex-shrink: 0; transition: transform 0.15s ease; }
+.fd-row-open .fd-chevron { transform: rotate(180deg); }
+
+/* تفاصيل الصف الداخلية: سريعة الاستجابة */
+.fd-row-body {
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px 16px; 
+  padding: 12px 14px 16px 14px; /* تم تقليل البادينج الأيسر ليناسب الموبايل */
+  border-top: 1px dashed var(--line);
+}
+.fd-field { display: flex; flex-direction: column; gap: 2px; font-size: 12px; padding: 4px 0; border-bottom: 1px solid #1f293d; }
+.fd-field-key { color: var(--muted); font-size: 11px; text-transform: uppercase; }
+.fd-field-val { font-family: 'IBM Plex Mono', monospace; color: var(--text); font-weight: 500; }
+
+.fd-footnote { color: var(--muted); font-size: 11.5px; margin-top: 24px; text-align: center; line-height: 1.5; }
+.fd-footnote code { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; word-break: break-all; }
+
+/* ---------------------------------------------------------------------------
+   Media Queries (شاشات الموبايل والأجهزة الصغيرة)
+   --------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+  .fd-root { padding: 16px 12px 32px; }
+  .fd-row-head { gap: 8px; padding: 12px 10px; }
+  .fd-row-verdict { width: 100%; order: 3; font-size: 12px; } /* نقل النص ليكون بالأسفل في الموبايل */
+  .fd-row-amount { order: 2; font-size: 12px; }
+  .fd-chevron { order: 4; }
+  .fd-field { border-bottom: 1px solid #1f293d; padding-bottom: 6px; }
+}
+
+body {
+  background-color: var(--ink, #0B0F17);
+}
