@@ -70,7 +70,10 @@ Fraud_Detection/
 ├── test1.json                # Sample data batch for instant testing
 ├── test2.json                # Sample data batch for instant testing
 └── test3.json                # Sample data batch for instant testing
-⚙️ Setup, Installation & Run Commands
+
+
+---
+##⚙️ Setup, Installation & Run Commands
 You can run the project either locally using native package managers or instantly via Docker.
 
 Method 1: Local Installation (Native)
@@ -87,8 +90,9 @@ source venv/bin/activate
 # 2. Install Python backend dependencies
 pip install -r requirements.txt
 
-# 3. Start the FastAPI server (Assuming app is inside backend folder)
-uvicorn backend.app:app --reload
+# 3. Start the FastAPI server
+uvicorn backend.app:app --reload --host 127.0.0.1 --port 8000
+Interactive API documentation (Swagger UI) will be live at: http://127.0.0.1:8000/docs
 
 2. Frontend Setup & Run (React + Vite)
 Open a new terminal window, navigate into the frontend folder, and execute the following:
@@ -102,8 +106,6 @@ npm install
 
 # 3. Start the Vite local development server
 npm run dev
-Look at the terminal output to get your local Vite port (usually http://localhost:5173 or http://localhost:3000 depending on your settings).
-
 Method 2: Docker Containerization (Recommended for Deployment)
 If you wish to spin up the production environment including dependencies with a single command:
 
@@ -113,5 +115,4 @@ docker-compose up --build -d
 📊 Required Batch Data Format
 For a successful batch scan via the React UI, you can use the pre-provided test1.json, test2.json, or test3.json files found in the project root. Any uploaded file must contain the following 12 key features:
 amount, hour, day_of_week, month, is_night, client_mean_amount, amount_to_credit_ratio, tx_count_same_day, client_merchant_freq, is_online, is_chip, has_error.
-
-
+---
