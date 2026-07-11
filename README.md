@@ -40,7 +40,7 @@ To handle the massive scale of transactional data cleanly and professionally, we
 ---
 
 ## 🛠️ Tech Stack
-* **Data Engineering & ML:** Python, Scikit-Learn, XGBoost, Pandas, NumPy
+* **Data Engineering & ML:** Pyspark,Python, Scikit-Learn, XGBoost, Pandas, NumPy
 * **Backend API:** FastAPI, Pydantic, Uvicorn, PostgreSQL (Database connectivity)
 * **Frontend UI:** React.js (Vite), Tailwind CSS, Lucide React Icons
 * **DevOps & Infrastructure:** Docker, Docker Compose
