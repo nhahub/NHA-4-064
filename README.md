@@ -70,7 +70,7 @@ Fraud_Detection/
 ├── test1.json                # Sample data batch for instant testing
 ├── test2.json                # Sample data batch for instant testing
 └── test3.json                # Sample data batch for instant testing
-
+```
 
 ---
 
@@ -96,9 +96,10 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 # 3. Start the FastAPI server
-uvicorn backend.app:app --reload 
+uvicorn backend.app:app --reload
+```
 
-2. Frontend Setup & Run (React + Vite)
+#### 2. Frontend Setup & Run (React + Vite)
 Open a new terminal window, navigate into the frontend folder, and execute the following:
 
 Bash
@@ -108,9 +109,9 @@ cd frontend
 # 2. Install frontend dependencies
 npm install
 
-# 3. Start the Vite local development server
+#### 3. Start the Vite local development server
 npm run dev
-Method 2: Docker Containerization (Recommended for Deployment)
+### Method 2: Docker Containerization (Recommended for Deployment)
 If you wish to spin up the production environment including dependencies with a single command:
 
 Bash
